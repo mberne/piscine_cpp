@@ -10,13 +10,13 @@ NAME		=		phonebook
 
 VPATH		=		srcs/
 PATH_OBJ	=		objs/
-PATH_INC	=		include/
+PATH_INC	=		includes/
 
 #~~~~ Sources ~~~~#
  
 SRCS		=		main.cpp			\
-					PhoneBook.class.cpp	\
-					Contact.class.cpp
+					Phonebook.cpp		\
+					Contact.cpp
 
 #~~~~ Objects ~~~~#
 
@@ -24,12 +24,12 @@ OBJS		=		$(addprefix $(PATH_OBJ), $(SRCS:.cpp=.o))
 
 #~~~~ Includes ~~~~#
 
-INCS		=		$(addprefix $(PATH_INC), PhoneBook.class.hpp Contact.class.hpp)
+INCS		=		$(addprefix $(PATH_INC), Phonebook.hpp Contact.hpp)
 
 #~~~~ Macros ~~~~#
 
 CC			=		clang++
-CFLAGS		=		-Wall -Wextra -Werror
+CFLAGS		=		-Wall -Wextra -Werror -std=c++98
 RM			=		rm -rf
 
 #========================================#
