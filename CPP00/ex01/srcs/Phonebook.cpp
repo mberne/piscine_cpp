@@ -94,7 +94,7 @@ void	Phonebook::loop()
 
 	while (1)
 	{
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (!std::cin.good() || std::cin.eof())
 		{
 			std::cout << "Error." << std::endl;
