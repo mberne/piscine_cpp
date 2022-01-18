@@ -1,3 +1,7 @@
-ex00/megaphone
-ex01/phonebook
-../objs
+.vscode/
+CPP00/ex00/megaphone
+CPP00/ex00/megaphone.o
+CPP00/ex01/objs/
+CPP00/ex01/phonebook
+CPP00/ex02/blabla
+CPP00/ex02/objs/

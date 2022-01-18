@@ -94,6 +94,7 @@ void	Phonebook::loop()
 
 	while (1)
 	{
+		std::cout << "What do you want to do ? ADD a contact, SEARCH a contact, or EXIT ?" << std::endl;
 		std::getline(std::cin, input);
 		if (!std::cin.good() || std::cin.eof())
 		{
