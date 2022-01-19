@@ -4,7 +4,7 @@
 
 #~~~~ Output ~~~~#
 
-NAME		=		horde
+NAME		=		humans
 
 #~~~~ Paths ~~~~#
 
