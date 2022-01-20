@@ -15,5 +15,7 @@ CPP01/ex02/main.o
 CPP01/ex02/brain
 CPP01/ex03/objs/
 CPP01/ex03/humans
-CPP01/ex04/objs/
+CPP01/ex04/main.o
 CPP01/ex04/mysedisbetterthanyours
+CPP01/ex04/coucou
+CPP01/ex04/*.replace

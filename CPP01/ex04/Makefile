@@ -4,31 +4,21 @@
 
 #~~~~ Output ~~~~#
 
-NAME		=		mysedisbetterthanyours
-
-#~~~~ Paths ~~~~#
-
-VPATH		=		srcs/
-PATH_OBJ	=		objs/
-PATH_INC	=		includes/
+NAME	=	mysedisbetterthanyours
 
 #~~~~ Sources ~~~~#
  
-SRCS		=		main.cpp
+SRCS	=	main.cpp
 
 #~~~~ Objects ~~~~#
 
-OBJS		=		$(addprefix $(PATH_OBJ), $(SRCS:.cpp=.o))
-
-#~~~~ Includes ~~~~#
-
-INCS		=		$(addprefix $(PATH_INC), )
+OBJS	=	$(SRCS:.cpp=.o)
 
 #~~~~ Macros ~~~~#
 
-CC			=		clang++
-CFLAGS		=		-Wall -Wextra -Werror -std=c++98
-RM			=		rm -rf
+CC		=	clang++
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+RM		=	rm -rf
 
 #========================================#
 #=============== TARGETS ================#
@@ -36,25 +26,24 @@ RM			=		rm -rf
 
 #~~~~ Main Rules ~~~~#
 
-all :				$(NAME)
+all :		$(NAME)
 
-$(NAME) :			$(OBJS)
-					$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -I $(PATH_INC)
+$(NAME) :	$(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-re :				fclean all
+re :		fclean all
 
 #~~~~ Compilation Rules ~~~~#
 
-$(PATH_OBJ)%.o :	%.cpp $(INCS)
-					@mkdir -p $(dir $@);
-					$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_INC)
+%.o :		%.cpp
+			$(CC) $(CFLAGS) -c $< -o $@
 
 #~~~~ Cleaning Rules ~~~~#
 
 clean :
-					$(RM) $(PATH_OBJ)
+			$(RM) $(OBJS)
 
-fclean :			clean
-					$(RM) $(NAME)
+fclean :	clean
+			$(RM) $(NAME)
 
-.PHONY:				all clean fclean re
+.PHONY:		all clean fclean re
