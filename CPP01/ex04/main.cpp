@@ -24,11 +24,12 @@ int main(int ac, char **av)
 	std::size_t	found = 0;
 	while (std::getline(infile, line))
 	{
-		while (found == line.find(s1))
+		found = line.find(s1);
+		while (found != line.npos)
 		{
-			std::cout << "Trouvée !" << std::endl;
 			line.erase(found, s1.size());
 			line.insert(found, s2);
+			found = line.find(s1);
 		}
 		outfile << line << std::endl;
 	}
