@@ -1,3 +1,6 @@
+#ifndef KAREN_HPP
+# define KAREN_HPP
+
 #include <iostream>
 
 class Karen
@@ -8,3 +11,5 @@ class Karen
 		Karen();
 		~Karen();
 };
+
+#endif
