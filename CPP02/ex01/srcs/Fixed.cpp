@@ -1,5 +1,9 @@
 #include "Fixed.hpp"
 
+/*
+		Constructors and destructor
+*/
+
 Fixed::Fixed() : _fixed_value(0)
 {
 	std::cout << "Default constructor called." << std::endl;
@@ -28,6 +32,10 @@ Fixed::~Fixed()
 	std::cout << "Destructor called." << std::endl;
 }
 
+/*
+		Operators overload
+*/
+
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
 	std::cout << "Assignation operator called." << std::endl;
@@ -40,6 +48,10 @@ std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 	o << rhs.toFloat();
 	return o;
 }
+
+/*
+		Other functions
+*/
 
 int Fixed::getRawBits() const
 {
