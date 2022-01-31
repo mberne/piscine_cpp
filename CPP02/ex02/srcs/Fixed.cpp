@@ -33,6 +33,108 @@ Fixed::~Fixed()
 }
 
 /*
+		Operators overload : Comparison
+*/
+
+bool	Fixed::operator>(Fixed const &rhs)
+{
+	return(this->_fixed_value > rhs.getRawBits());
+}
+
+bool	Fixed::operator<(Fixed const &rhs)
+{
+	return(this->_fixed_value < rhs.getRawBits());
+}
+
+bool	Fixed::operator>=(Fixed const &rhs)
+{
+	return(this->_fixed_value >= rhs.getRawBits());
+}
+
+bool	Fixed::operator<=(Fixed const &rhs)
+{
+	return(this->_fixed_value <= rhs.getRawBits());
+}
+
+bool	Fixed::operator==(Fixed const &rhs)
+{
+	return(this->_fixed_value == rhs.getRawBits());
+}
+
+bool	Fixed::operator!=(Fixed const &rhs)
+{
+	return(this->_fixed_value != rhs.getRawBits());
+}
+
+/*
+		Operators overload : Arithmetic
+*/
+
+Fixed	Fixed::operator+(Fixed const &rhs)
+{
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixed_value + rhs.getRawBits());
+	return tmp;
+}
+
+Fixed	Fixed::operator-(Fixed const &rhs)
+{
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixed_value - rhs.getRawBits());
+	return tmp;
+}
+
+Fixed	Fixed::operator*(Fixed const &rhs)
+{
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixed_value * rhs.getRawBits());
+	return tmp;
+}
+
+Fixed	Fixed::operator/(Fixed const &rhs)
+{
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixed_value / rhs.getRawBits());
+	return tmp;
+}
+
+/*
+		Operators overload : Increment/Decrement
+*/
+
+Fixed	Fixed::operator++()
+{
+	this->_fixed_value++;
+	return *this;
+}
+
+Fixed	Fixed::operator--()
+{
+	this->_fixed_value--;
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	tmp(*this);
+
+	this->_fixed_value++;
+	return tmp;
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp(*this);
+
+	this->_fixed_value--;
+	return tmp;
+}
+
+/*
 		Operators overload : Other
 */
 
@@ -49,77 +151,7 @@ std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 }
 
 /*
-		Operators overload : Comparison
-*/
-
-bool	Fixed::operator>(Fixed const &rhs)
-{
-	if (this->_fixed_value > rhs.getRawBits())
-		return 1;
-	return 0;
-}
-
-bool	Fixed::operator<(Fixed const &rhs)
-{
-	if (this->_fixed_value < rhs.getRawBits())
-		return 1;
-	return 0;
-}
-
-bool	Fixed::operator>=(Fixed const &rhs)
-{
-	if (this->_fixed_value >= rhs.getRawBits())
-		return 1;
-	return 0;
-}
-
-bool	Fixed::operator<=(Fixed const &rhs)
-{
-	if (this->_fixed_value <= rhs.getRawBits())
-		return 1;
-	return 0;
-}
-
-bool	Fixed::operator==(Fixed const &rhs)
-{
-	if (this->_fixed_value == rhs.getRawBits())
-		return 1;
-	return 0;
-}
-
-bool	Fixed::operator!=(Fixed const &rhs)
-{
-	if (this->_fixed_value != rhs.getRawBits())
-		return 1;
-	return 0;
-}
-
-/*
-		Operators overload : Arithmetic
-*/
-
-Fixed	Fixed::operator+(Fixed const &rhs)
-{
-	return Fixed(this->_fixed_value + rhs.getRawBits());
-}
-
-Fixed	Fixed::operator-(Fixed const &rhs)
-{
-	return Fixed(this->_fixed_value - rhs.getRawBits());
-}
-
-Fixed	Fixed::operator*(Fixed const &rhs)
-{
-	return Fixed(this->_fixed_value * rhs.getRawBits());
-}
-
-Fixed	Fixed::operator/(Fixed const &rhs)
-{
-	return Fixed(this->_fixed_value / rhs.getRawBits());
-}
-
-/*
-		Other functions
+		Main functions
 */
 
 int Fixed::getRawBits() const
@@ -141,3 +173,36 @@ float Fixed::toFloat() const
 {
 	return (float)_fixed_value / (float)(1 << _number_of_fractional_bits);
 }
+
+/*
+		min/max functions
+*/
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed	&Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return a;
+	return b;
+}
+
+const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return a;
+	return b;
+}
+
