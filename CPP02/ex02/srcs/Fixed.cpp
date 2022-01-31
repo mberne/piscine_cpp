@@ -90,7 +90,7 @@ Fixed	Fixed::operator*(Fixed const &rhs)
 {
 	Fixed tmp;
 
-	tmp.setRawBits(this->_fixed_value * rhs.getRawBits());
+	tmp.setRawBits((this->_fixed_value * rhs.getRawBits()) / (1 << this->_number_of_fractional_bits));
 	return tmp;
 }
 
@@ -98,7 +98,7 @@ Fixed	Fixed::operator/(Fixed const &rhs)
 {
 	Fixed tmp;
 
-	tmp.setRawBits(this->_fixed_value / rhs.getRawBits());
+	tmp.setRawBits((this->_fixed_value / rhs.getRawBits()) * (1 << this->_number_of_fractional_bits));
 	return tmp;
 }
 
