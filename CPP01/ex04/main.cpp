@@ -39,7 +39,7 @@ int main(int ac, char **av)
 	{
 		str.erase(found, s1.size());
 		str.insert(found, s2);
-		i += found + s2.size();
+		i = found + s2.size();
 	}
 
 	outfile << str << std::endl;
