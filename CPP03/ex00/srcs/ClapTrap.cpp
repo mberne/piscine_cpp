@@ -37,7 +37,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 }
 
 /*
-		Getter and setter
+		Getter
 */
 
 std::string	ClapTrap::getName() const
@@ -104,16 +104,8 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		if (_energy_points)
 		{
 			_energy_points--;
-			if (_hit_points + amount < 10)
-			{
-				_hit_points += amount;
-				std::cout << "ClapTrap " << this->getName() << " is repared for " << amount << " points of damage." << std::endl;
-			}
-			else
-			{
-				_hit_points = 10;
-				std::cout << "ClapTrap " << this->getName() << " is now full life." << std::endl;
-			}
+			_hit_points += amount;
+			std::cout << "ClapTrap " << this->getName() << " is repared for " << amount << " points of damage." << std::endl;
 		}
 		else
 			std::cout << "ClapTrap " << this->getName() << " is tired." << std::endl;
