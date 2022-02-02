@@ -95,7 +95,7 @@ int main()
 	std::cout << "___________" << std::endl;
 	std::cout << "Other tests" << std::endl;
 	std::cout << "___________" << std::endl;
-	// other_tests();
+	other_tests();
 	std::cout << "___________" << std::endl;
 	std::cout << "End other tests" << std::endl;
 	std::cout << "___________" << std::endl;
