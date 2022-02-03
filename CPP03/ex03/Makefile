@@ -31,7 +31,7 @@ INCS		=		$(addprefix $(PATH_INC), ClapTrap.hpp ScavTrap.hpp FragTrap.hpp Diamond
 #~~~~ Macros ~~~~#
 
 CC			=		clang++
-CFLAGS		=		-Wall -Wextra -Werror -std=c++98
+CFLAGS		=		-Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 RM			=		rm -rf
 
 #========================================#
