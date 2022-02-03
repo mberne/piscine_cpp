@@ -7,17 +7,26 @@
 DiamondTrap::DiamondTrap()
 {
 	std::cout << "Default DiamondTrap constructor called." << std::endl;
+	_hit_points = 100;
+	_energy_points = 50;
+	_attack_damage = 30;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &src)
 {
 	std::cout << "Copy DiamondTrap constructor called." << std::endl;
+	_hit_points = 100;
+	_energy_points = 50;
+	_attack_damage = 30;
 	*this = src;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
 {
 	std::cout << "DiamondTrap constructor called." << std::endl;
+	_hit_points = 100;
+	_energy_points = 50;
+	_attack_damage = 30;
 	_name = name;
 }
 
