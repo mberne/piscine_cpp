@@ -15,11 +15,10 @@ PATH_INC	=		includes/
 #~~~~ Sources ~~~~#
  
 SRCS		=		main.cpp		\
-					Animal.cpp		\
+					AAnimal.cpp		\
 					Dog.cpp			\
 					Cat.cpp			\
-					WrongAnimal.cpp	\
-					WrongCat.cpp	\
+					Brain.cpp
 
 #~~~~ Objects ~~~~#
 
@@ -27,7 +26,7 @@ OBJS		=		$(addprefix $(PATH_OBJ), $(SRCS:.cpp=.o))
 
 #~~~~ Includes ~~~~#
 
-INCS		=		$(addprefix $(PATH_INC), Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp)
+INCS		=		$(addprefix $(PATH_INC), AAnimal.hpp Dog.hpp Cat.hpp Brain.hpp)
 
 #~~~~ Macros ~~~~#
 
