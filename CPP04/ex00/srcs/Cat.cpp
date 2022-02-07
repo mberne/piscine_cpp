@@ -27,7 +27,7 @@ Cat::~Cat()
 
 Cat	&Cat::operator=(Cat const &rhs)
 {
-	this->type = rhs.getType();
+	this->type = rhs.type;
 	return	*this;
 }
 

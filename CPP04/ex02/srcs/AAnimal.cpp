@@ -26,7 +26,7 @@ AAnimal::~AAnimal()
 
 AAnimal	&AAnimal::operator=(AAnimal const &rhs)
 {
-	this->type = rhs.getType();
+	this->type = rhs.type;
 	return	*this;
 }
 
@@ -42,13 +42,4 @@ std::string AAnimal::getType() const
 void AAnimal::setType(std::string const raw)
 {
 	type = raw;
-}
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-void	AAnimal::makeSound() const
-{
-	std::cout << "Animal sound..." << std::endl;
 }
