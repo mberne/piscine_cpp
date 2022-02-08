@@ -79,6 +79,22 @@ void	Bureaucrat::demote()
 		throw Bureaucrat::GradeTooHighException();
 }
 
+void	Bureaucrat::signForm(Form paper)
+{
+	try
+	{
+		if (paper.getSigned())
+			std::cout << _name << " signed " << paper.getName() << std::endl;
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " couldn't sign " << paper.getName() << " because ";
+		std::cerr << e.what() << std::endl;
+	}
+}
+
 /*
 ** --------------------------------- EXCEPTION ---------------------------------
 */
