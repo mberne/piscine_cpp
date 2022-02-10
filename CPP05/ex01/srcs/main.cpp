@@ -21,7 +21,14 @@ int main()
 			std::cerr << e.what() << std::endl;
 		}
 		std::cout << form << std::endl;
-		jl.signForm(form);
+		try
+		{
+			jl.signForm(form);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 
 	std::cout << std::endl;
@@ -41,7 +48,14 @@ int main()
 			std::cerr << e.what() << std::endl;
 		}
 		std::cout << form << std::endl;
-		md.signForm(form);
+		try
+		{
+			md.signForm(form);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 	
 	return 0;

@@ -43,7 +43,7 @@ std::ostream &operator<<(std::ostream &o, Form const &rhs)
 		o << "is signed.";
 	else
 		o << "isn't signed.";
-	o << " His sign grade is " << rhs.getSignGrade() << " and his execute grade is " << rhs.getExecuteGrade();
+	o << " His sign grade is " << rhs.getSignGrade() << " and his execute grade is " << rhs.getExecuteGrade() << ".";
 	return o;
 }
 
@@ -75,7 +75,7 @@ unsigned int	Form::getExecuteGrade() const
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Form::beSigned(Bureaucrat human)
+void	Form::beSigned(Bureaucrat &human)
 {
 	if (human.getGrade() <= getSignGrade())
 		_signed = 1;
@@ -89,10 +89,10 @@ void	Form::beSigned(Bureaucrat human)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.");
+	return ("grade is too high");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.");
+	return ("grade is too low");
 }

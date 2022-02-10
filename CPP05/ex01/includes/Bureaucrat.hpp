@@ -26,7 +26,7 @@ class Bureaucrat
 
 		void			promote();
 		void			demote();
-		void			signForm(Form paper);
+		void			signForm(Form &paper);
 
 		class GradeTooHighException : public std::exception
 		{

@@ -41,7 +41,7 @@ Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs)
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs)
 {
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
 	return o;
 }
 
@@ -79,19 +79,14 @@ void	Bureaucrat::demote()
 		throw Bureaucrat::GradeTooHighException();
 }
 
-void	Bureaucrat::signForm(Form paper)
+void	Bureaucrat::signForm(Form &paper)
 {
-	try
-	{
-		if (paper.getSigned())
-			std::cout << _name << " signed " << paper.getName() << std::endl;
-		else
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch(const std::exception& e)
+	if (paper.getSigned())
+		std::cout << _name << " signed " << paper.getName() << "." << std::endl;
+	else
 	{
 		std::cout << _name << " couldn't sign " << paper.getName() << " because ";
-		std::cerr << e.what() << std::endl;
+		throw Bureaucrat::GradeTooLowException();
 	}
 }
 
@@ -101,10 +96,10 @@ void	Bureaucrat::signForm(Form paper)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.");
+	return ("grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.");
+	return ("grade is too low");
 }
