@@ -103,7 +103,12 @@ bool	AForm::beSigned(Bureaucrat &human)
 
 bool	AForm::execute(Bureaucrat const &executor) const
 {
-	if(getSigned() && executor.getGrade() <= getExecuteGrade())
+	if (!getSigned())
+	{
+		std::cout << _name << " isn't signed." << std::endl;
+		return 0;
+	}
+	else if(executor.getGrade() <= getExecuteGrade())
 	{
 		this->action();
 		return 1;

@@ -15,7 +15,7 @@ class RobotomyRequestForm : public AForm
 
 		RobotomyRequestForm	&operator=(RobotomyRequestForm const &rhs);
 
-		void	execute(Bureaucrat const &executor) const;
+		void	action() const;
 };
 
 #endif

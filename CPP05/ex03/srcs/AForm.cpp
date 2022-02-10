@@ -92,12 +92,30 @@ void	AForm::setTarget(std::string target)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	AForm::beSigned(Bureaucrat &human)
+bool	AForm::beSigned(Bureaucrat &human)
 {
 	if (human.getGrade() <= getSignGrade())
 		_signed = 1;
 	else
 		throw AForm::GradeTooLowException();
+	return (_signed);
+}
+
+bool	AForm::execute(Bureaucrat const &executor) const
+{
+	if (!getSigned())
+	{
+		std::cout << _name << " isn't signed." << std::endl;
+		return 0;
+	}
+	else if(executor.getGrade() <= getExecuteGrade())
+	{
+		this->action();
+		return 1;
+	}
+	else
+		throw Bureaucrat::GradeTooLowException();
+	return 0;
 }
 
 /*
@@ -106,10 +124,10 @@ void	AForm::beSigned(Bureaucrat &human)
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return ("grade is too high");
+	return ("Form's grade is too high");
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return ("grade is too low");
+	return ("Form's grade is too low");
 }

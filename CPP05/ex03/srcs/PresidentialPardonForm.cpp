@@ -38,10 +38,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+void PresidentialPardonForm::action() const
 {
-	if(getSigned() && executor.getGrade() <= getSignGrade() && executor.getGrade() <= getExecuteGrade())
-		std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
-	else
-		throw AForm::GradeTooLowException();
+	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
