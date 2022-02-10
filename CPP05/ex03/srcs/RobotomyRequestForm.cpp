@@ -40,13 +40,18 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void RobotomyRequestForm::action() const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << "*vrrrrrrrr* ";
-	std::srand(time(NULL));
-	int	rand = std::rand() % 2;
-	if (rand)
-		std::cout << getTarget() << " has been robotomized." << std::endl;
+	if(getSigned() && executor.getGrade() <= getSignGrade() && executor.getGrade() <= getExecuteGrade())
+	{
+		std::cout << "*vrrrrrrrr* ";
+		std::srand(time(NULL));
+		int	rand = std::rand() % 2;
+		if (rand)
+			std::cout << getTarget() << " has been robotomized." << std::endl;
+		else
+			std::cout << getTarget() << " hasn't been robotomized." << std::endl;
+	}
 	else
-		std::cout << getTarget() << " hasn't been robotomized." << std::endl;
+		throw AForm::GradeTooLowException();
 }

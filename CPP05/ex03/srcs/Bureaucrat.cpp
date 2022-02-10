@@ -79,12 +79,25 @@ void	Bureaucrat::demote()
 		throw Bureaucrat::GradeTooHighException();
 }
 
-void	Bureaucrat::signForm(Form &paper)
+void	Bureaucrat::signForm(AForm &paper)
 {
-	if (paper.beSigned(*this))
+	if (paper.getSigned())
 		std::cout << _name << " signed " << paper.getName() << "." << std::endl;
 	else
+	{
 		std::cout << _name << " couldn't sign " << paper.getName() << " because ";
+		throw Bureaucrat::GradeTooLowException();
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	if (!form.getSigned())
+		throw AForm::GradeTooLowException();
+	else if (form.getExecuteGrade() <= getGrade())
+		throw Bureaucrat::GradeTooLowException();
+	else
+		std::cout << getName() << " executed " << form.getName() << std::endl;
 }
 
 /*
@@ -93,10 +106,10 @@ void	Bureaucrat::signForm(Form &paper)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Bureaucrat's grade is too high");
+	return ("grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Bureaucrat's grade is too low");
+	return ("grade is too low");
 }

@@ -75,12 +75,13 @@ unsigned int	Form::getExecuteGrade() const
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Form::beSigned(Bureaucrat &human)
+bool	Form::beSigned(Bureaucrat &human)
 {
 	if (human.getGrade() <= getSignGrade())
 		_signed = 1;
 	else
 		throw Form::GradeTooLowException();
+	return (_signed);
 }
 
 /*
@@ -89,10 +90,10 @@ void	Form::beSigned(Bureaucrat &human)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("grade is too high");
+	return ("Form's grade is too high");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("grade is too low");
+	return ("Form's grade is too low");
 }

@@ -16,7 +16,7 @@ PATH_INC	=		includes/
  
 SRCS		=		main.cpp					\
 					Bureaucrat.cpp				\
-					Form.cpp					\
+					AForm.cpp					\
 					ShrubberyCreationForm.cpp	\
 					RobotomyRequestForm.cpp		\
 					PresidentialPardonForm.cpp	\
@@ -28,7 +28,7 @@ OBJS		=		$(addprefix $(PATH_OBJ), $(SRCS:.cpp=.o))
 
 #~~~~ Includes ~~~~#
 
-INCS		=		$(addprefix $(PATH_INC), Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp)
+INCS		=		$(addprefix $(PATH_INC), Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp)
 
 #~~~~ Macros ~~~~#
 

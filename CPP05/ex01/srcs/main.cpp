@@ -7,19 +7,10 @@
 int main()
 {
 	{
-		Form	form("Babeuc ce dimanche", 100, 50);
+		Form	form("Barbeuc ce dimanche", 100, 50);
 
 		Bureaucrat	jl("Jean Louis", 150);
 		std::cout << jl << std::endl;
-		std::cout << form << std::endl;
-		try
-		{
-			form.beSigned(jl);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
 		std::cout << form << std::endl;
 		try
 		{
@@ -29,6 +20,7 @@ int main()
 		{
 			std::cerr << e.what() << std::endl;
 		}
+		std::cout << form << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -41,21 +33,13 @@ int main()
 		std::cout << form << std::endl;
 		try
 		{
-			form.beSigned(md);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		std::cout << form << std::endl;
-		try
-		{
 			md.signForm(form);
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
+		std::cout << form << std::endl;
 	}
 	
 	return 0;

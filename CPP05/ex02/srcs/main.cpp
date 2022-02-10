@@ -18,9 +18,8 @@ int main()
 
 	try
 	{
-		form1->beSigned(jp);
+		jp.signForm(*form1);
 		jp.executeForm(*form1);
-		form1->execute(jp);
 	}
 	catch(const std::exception& e)
 	{
@@ -28,9 +27,8 @@ int main()
 	}
 	try
 	{
-		form2->beSigned(jp);
+		jp.signForm(*form2);
 		jp.executeForm(*form2);
-		form2->execute(jp);
 	}
 	catch(const std::exception& e)
 	{
@@ -38,9 +36,8 @@ int main()
 	}
 	try
 	{
-		form3->beSigned(jp);
+		jp.signForm(*form3);
 		jp.executeForm(*form3);
-		form3->execute(jp);
 	}
 	catch(const std::exception& e)
 	{
@@ -51,9 +48,8 @@ int main()
 
 	try
 	{
-		form1->beSigned(noob);
+		noob.signForm(*form1);
 		noob.executeForm(*form1);
-		form1->execute(noob);
 	}
 	catch(const std::exception& e)
 	{
@@ -61,9 +57,8 @@ int main()
 	}
 	try
 	{
-		form2->beSigned(noob);
+		noob.signForm(*form2);
 		noob.executeForm(*form2);
-		form2->execute(noob);
 	}
 	catch(const std::exception& e)
 	{
@@ -71,9 +66,8 @@ int main()
 	}
 	try
 	{
-		form3->beSigned(noob);
+		noob.signForm(*form3);
 		noob.executeForm(*form3);
-		form3->execute(noob);
 	}
 	catch(const std::exception& e)
 	{
@@ -84,9 +78,8 @@ int main()
 
 	try
 	{
-		form1->beSigned(je);
+		je.signForm(*form1);
 		je.executeForm(*form1);
-		form1->execute(je);
 	}
 	catch(const std::exception& e)
 	{
@@ -94,9 +87,8 @@ int main()
 	}
 	try
 	{
-		form2->beSigned(je);
+		je.signForm(*form2);
 		je.executeForm(*form2);
-		form2->execute(je);
 	}
 	catch(const std::exception& e)
 	{
@@ -104,9 +96,8 @@ int main()
 	}
 	try
 	{
-		form3->beSigned(je);
+		je.signForm(*form3);
 		je.executeForm(*form3);
-		form3->execute(je);
 	}
 	catch(const std::exception& e)
 	{
