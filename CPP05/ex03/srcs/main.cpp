@@ -24,5 +24,9 @@ int main()
 	std::cout << ppf->getTarget() << std::endl;
 	damn = someRandomIntern.makeForm("coffee", "Karen");
 
+	delete scf;
+	delete rrf;
+	delete ppf;
+	
 	return 0;
 }
