@@ -4,11 +4,12 @@
 ** ------------------------------- CONSTRUCTOR AND DESTRUCTOR --------------------------------
 */
 
-AForm::AForm() : _name("AForm"), _signed(0), _signGrade(150), _executeGrade(150)
+AForm::AForm() : _name("Form"), _signed(0), _signGrade(150), _executeGrade(150)
 {
+
 }
 
-AForm::AForm(const AForm &src) : _name("AForm"), _signGrade(150), _executeGrade(150)
+AForm::AForm(const AForm &src) : _name("Form"), _signGrade(150), _executeGrade(150)
 {
 	*this = src;
 }
@@ -33,17 +34,18 @@ AForm::~AForm()
 AForm	&AForm::operator=(AForm const &rhs)
 {
 	_signed = rhs._signed;
+	_target = rhs._target;
 	return *this;
 }
 
 std::ostream &operator<<(std::ostream &o, AForm const &rhs)
 {
-	o << rhs.getName() << " AForm ";
+	o << rhs.getName() << " form ";
 	if (rhs.getSigned())
 		o << "is signed.";
 	else
 		o << "isn't signed.";
-	o << " His sign grade is " << rhs.getSignGrade() << " and his execute grade is " << rhs.getExecuteGrade();
+	o << " His sign grade is " << rhs.getSignGrade() << " and his execute grade is " << rhs.getExecuteGrade() << ".";
 	return o;
 }
 
@@ -71,11 +73,26 @@ unsigned int	AForm::getExecuteGrade() const
 	return _executeGrade;
 }
 
+std::string		AForm::getTarget() const
+{
+	return _target;
+}
+
+void	AForm::setSigned(bool sign)
+{
+	_signed = sign;
+}
+
+void	AForm::setTarget(std::string target)
+{
+	_target = target;
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	AForm::beSigned(Bureaucrat human)
+void	AForm::beSigned(Bureaucrat &human)
 {
 	if (human.getGrade() <= getSignGrade())
 		_signed = 1;
@@ -89,10 +106,10 @@ void	AForm::beSigned(Bureaucrat human)
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.");
+	return ("grade is too high");
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.");
+	return ("grade is too low");
 }
