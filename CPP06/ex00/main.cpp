@@ -30,7 +30,9 @@ int	main(int ac, char **av)
 	double	value = atof(av[1]);
 
 	std::cout << "char : ";
-	if (value < CHAR_MIN || value > CHAR_MAX)
+	if (isprint(str[0]) && str.length() == 1)
+		std::cout << "'" << static_cast<char>(str[0]) << "'"  << std::endl;
+	else if (value < CHAR_MIN || value > CHAR_MAX)
 		std::cout << "impossible" << std::endl;
 	else if (!std::isprint(value))
 		std::cout << "non displayable" << std::endl;
