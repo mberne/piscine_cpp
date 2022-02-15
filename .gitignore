@@ -62,3 +62,5 @@ CPP06/ex00/main.o
 CPP06/ex00/convert
 CPP06/ex01/objs
 CPP06/ex01/serialization
+CPP06/ex02/objs
+CPP06/ex02/dynamic_cast
