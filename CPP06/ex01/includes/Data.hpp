@@ -7,6 +7,9 @@
 class Data
 {
 	private:
+		std::string	_stringValue;
+		int			_intValue;
+		float		_floatValue;
 
 	public:
 		Data();
@@ -14,6 +17,18 @@ class Data
 		virtual ~Data();
 
 		Data	&operator=(Data const &rhs);
+
+		std::string	getString() const;
+		int			getInt() const;
+		float		getFloat() const;
+		void		setString(std::string value);
+		void		setInt(int value);
+		void		setSFloat(float value);
 };
+
+std::ostream	&operator<<(std::ostream &o, Data const &rhs);
+
+uintptr_t		serialize(Data* ptr);
+Data*			deserialize(uintptr_t raw);
 
 #endif
