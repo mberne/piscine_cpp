@@ -64,3 +64,10 @@ CPP06/ex01/objs
 CPP06/ex01/serialization
 CPP06/ex02/objs
 CPP06/ex02/dynamic_cast
+
+CPP07/ex00/objs
+CPP07/ex00/begin
+CPP07/ex01/objs
+CPP07/ex01/iter
+CPP07/ex02/objs
+CPP07/ex02/array
