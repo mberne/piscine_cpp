@@ -23,7 +23,7 @@ class Data
 		float		getFloat() const;
 		void		setString(std::string value);
 		void		setInt(int value);
-		void		setSFloat(float value);
+		void		setFloat(float value);
 };
 
 std::ostream	&operator<<(std::ostream &o, Data const &rhs);

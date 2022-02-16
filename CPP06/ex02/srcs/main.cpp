@@ -6,7 +6,6 @@
 
 Base *generate(void)
 {
-	srand(time(NULL));
 	int	value = rand() % 3;
 	if (value == 0)
 		return (new A());
@@ -66,6 +65,8 @@ void identify(Base &p)
 
 int main()
 {
+	srand(time(NULL));
+
 	Base	*instance = generate();
 
 	identify(instance);

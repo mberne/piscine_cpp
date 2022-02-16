@@ -68,7 +68,7 @@ void	Data::setInt(int value)
 		_intValue = value;
 }
 
-void	Data::setSFloat(float value)
+void	Data::setFloat(float value)
 {
 	_floatValue = value;
 }

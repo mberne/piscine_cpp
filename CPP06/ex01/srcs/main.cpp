@@ -26,7 +26,7 @@ int main()
 
 	serialized->setString("C'est bien 42.");
 	serialized->setInt(4242);
-	serialized->setSFloat(42.42);
+	serialized->setFloat(42.42);
 
 	std::cout << instance << std::endl;
 	std::cout << *instance << std::endl;

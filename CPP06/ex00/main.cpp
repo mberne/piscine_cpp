@@ -1,10 +1,12 @@
 #include <iostream>
 #include <climits>
-// #include <iomanip>
+#include <float.h>
 
 bool	check_nan_inf(std::string value)
 {
-	if (value.length() && (!value.compare("nan") || !value.compare("nanf") || !value.compare("inf")  || !value.compare("inff")  || !value.compare("-inf")  || !value.compare("-inff")))
+	if (value.length() && (!value.compare("inff") || !value.compare("-inff")))
+		value.erase(3, 1);
+	if (value.length() && (!value.compare("nan") || !value.compare("nanf") || !value.compare("inf") || !value.compare("-inf") || !value.compare("inff") || !value.compare("-inff")))
 	{
 		std::cout << "char : impossible" << std::endl;
 		std::cout << "int : impossible" << std::endl;
@@ -46,13 +48,18 @@ int	main(int ac, char **av)
 		std::cout << static_cast<int>(value) << std::endl;
 
 	std::cout << "float : ";
-	if (value - static_cast<int>(value) == 0.0)
-		std::cout << static_cast<float>(value) << ".0f" << std::endl;
+	if ((value < FLT_MIN || value > FLT_MAX) && value != 0)
+		std::cout << "impossible" << std::endl;
 	else
-		std::cout << static_cast<float>(value) << "f" << std::endl;
+	{
+		if (value - static_cast<int>(value) == 0.0 && value < 999999)
+			std::cout << static_cast<float>(value) << ".0f" << std::endl;
+		else
+			std::cout << static_cast<float>(value) << "f" << std::endl;
+	}
 
 	std::cout << "double : ";
-	if (value - static_cast<int>(value) == 0.0)
+	if (value - static_cast<int>(value) == 0.0 && value < 999999)
 		std::cout << value << ".0" << std::endl;
 	else
 		std::cout << value << std::endl;
