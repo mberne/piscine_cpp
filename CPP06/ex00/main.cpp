@@ -4,9 +4,9 @@
 
 bool	check_nan_inf(std::string value)
 {
-	if (value.length() && (!value.compare("inff") || !value.compare("-inff")))
+	if (!value.compare("inff") || !value.compare("-inff"))
 		value.erase(3, 1);
-	if (value.length() && (!value.compare("nan") || !value.compare("nanf") || !value.compare("inf") || !value.compare("-inf") || !value.compare("inff") || !value.compare("-inff")))
+	if (!value.compare("nan") || !value.compare("nanf") || !value.compare("inf") || !value.compare("-inf") || !value.compare("inff") || !value.compare("-inff"))
 	{
 		std::cout << "char : impossible" << std::endl;
 		std::cout << "int : impossible" << std::endl;
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	double	value = atof(av[1]);
 
 	std::cout << "char : ";
-	if (isprint(str[0]) && str.length() == 1)
+	if (isalpha(str[0]) && str.length() == 1)
 		std::cout << "'" << static_cast<char>(str[0]) << "'"  << std::endl;
 	else if (value < CHAR_MIN || value > CHAR_MAX)
 		std::cout << "impossible" << std::endl;
