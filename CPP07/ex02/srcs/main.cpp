@@ -17,52 +17,103 @@ void	print_array(U array)
 
 int main(int, char**)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
+	{
+		Array<int> numbers(MAX_VAL);
+		int* mirror = new int[MAX_VAL];
+		srand(time(NULL));
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand() % 100;
-        numbers[i] = value;
-        mirror[i] = value;
-    }
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			const int value = rand() % 100;
+			numbers[i] = value;
+			mirror[i] = value;
+		}
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			if (mirror[i] != numbers[i])
+			{
+				std::cerr << "didn't save the same value!!" << std::endl;
+				return 1;
+			}
+		}
 
-    try
-    {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+		try
+		{
+			numbers[-2] = 0;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			numbers[MAX_VAL] = 0;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand() % 100;
-    }
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			numbers[i] = rand() % 100;
+		}
 
-	print_array(numbers);
-	print_array(mirror);	
+		print_array(numbers);
+		print_array(mirror);	
 
-    delete [] mirror;
+		delete [] mirror;
+	}
+
+	{
+		Array<int> numbers(MAX_VAL);
+		Array<int> copyNumbers(numbers);
+
+		srand(time(NULL));
+
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			const int value = rand() % 100;
+			numbers[i] = value;
+			copyNumbers[i] = value;
+		}
+
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			if (copyNumbers[i] != numbers[i])
+			{
+				std::cerr << "didn't save the same value!!" << std::endl;
+				return 1;
+			}
+		}
+
+		try
+		{
+			numbers[-2] = 0;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			numbers[MAX_VAL] = 0;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			numbers[i] = rand() % 100;
+		}
+
+		print_array(numbers);
+		print_array(copyNumbers);
+
+	}
 
     return 0;
 }
