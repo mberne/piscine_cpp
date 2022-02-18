@@ -14,8 +14,7 @@ PATH_INC	=		includes/
 
 #~~~~ Sources ~~~~#
  
-SRCS		=		main.cpp	\
-					Array.tpp
+SRCS		=		main.cpp
 
 #~~~~ Objects ~~~~#
 
