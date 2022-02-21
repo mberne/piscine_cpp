@@ -48,21 +48,24 @@ MateriaSource::~MateriaSource()
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 {
-	size_t	i = 0;
+	if (this != &rhs)
+	{
+		size_t	i = 0;
 
-	while (i < 4)
-	{
-		delete _materias[i];
-		i++;
-	}
-	i = 0;
-	while (i < 4)
-	{
-		if (rhs._materias[i])
-			_materias[i] = rhs._materias[i]->clone();
-		else
-			_materias[i] = nullptr;
-		i++;
+		while (i < 4)
+		{
+			delete _materias[i];
+			i++;
+		}
+		i = 0;
+		while (i < 4)
+		{
+			if (rhs._materias[i])
+				_materias[i] = rhs._materias[i]->clone();
+			else
+				_materias[i] = nullptr;
+			i++;
+		}
 	}
 	return *this;
 }

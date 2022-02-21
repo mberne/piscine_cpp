@@ -140,7 +140,8 @@ Fixed	Fixed::operator--(int)
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
-	this->_fixed_value = rhs.getRawBits();
+	if (this != &rhs)
+		this->_fixed_value = rhs.getRawBits();
 	return *this;
 }
 

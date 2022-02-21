@@ -61,23 +61,26 @@ Character::~Character()
 
 Character	&Character::operator=(Character const &rhs)
 {
-	size_t	i = 0;
-
-	_name = rhs._name;
-	while (i < 4)
+	if (this != &rhs)
 	{
-		delete _inventory[i];
-		i++;
-	}
+		size_t	i = 0;
 
-	i = 0;
-	while (i < 4)
-	{
-		if (rhs._inventory[i])
-			_inventory[i] = rhs._inventory[i]->clone();
-		else
-			_inventory[i] = nullptr;
-		i++;
+		_name = rhs._name;
+		while (i < 4)
+		{
+			delete _inventory[i];
+			i++;
+		}
+
+		i = 0;
+		while (i < 4)
+		{
+			if (rhs._inventory[i])
+				_inventory[i] = rhs._inventory[i]->clone();
+			else
+				_inventory[i] = nullptr;
+			i++;
+		}
 	}
 	return *this;
 }

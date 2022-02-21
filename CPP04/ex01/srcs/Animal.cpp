@@ -26,7 +26,8 @@ Animal::~Animal()
 
 Animal	&Animal::operator=(Animal const &rhs)
 {
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return	*this;
 }
 

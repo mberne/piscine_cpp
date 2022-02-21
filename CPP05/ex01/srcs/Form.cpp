@@ -32,7 +32,8 @@ Form::~Form()
 
 Form	&Form::operator=(Form const &rhs)
 {
-	_signed = rhs._signed;
+	if (this != &rhs)
+		_signed = rhs._signed;
 	return *this;
 }
 

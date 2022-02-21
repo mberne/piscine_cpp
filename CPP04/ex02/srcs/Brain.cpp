@@ -26,12 +26,15 @@ Brain::~Brain()
 
 Brain	&Brain::operator=(Brain const &rhs)
 {
-	size_t	i = 0;
-	
-	while (i < 100)
+	if (this != &rhs)
 	{
-		this->_ideas[i] = rhs._ideas[i];
-		i++;
+		size_t	i = 0;
+		
+		while (i < 100)
+		{
+			this->_ideas[i] = rhs._ideas[i];
+			i++;
+		}
 	}
 	return *this;
 }

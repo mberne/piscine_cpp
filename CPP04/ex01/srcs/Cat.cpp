@@ -30,8 +30,11 @@ Cat::~Cat()
 
 Cat	&Cat::operator=(Cat const &rhs)
 {
-	this->type = rhs.type;
-	*this->_brain = *rhs._brain;
+	if (this != &rhs)
+	{
+		this->type = rhs.type;
+		*this->_brain = *rhs._brain;
+	}
 	return *this;
 }
 

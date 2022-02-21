@@ -33,8 +33,11 @@ AForm::~AForm()
 
 AForm	&AForm::operator=(AForm const &rhs)
 {
-	_signed = rhs._signed;
-	_target = rhs._target;
+	if (this != &rhs)
+	{
+		_signed = rhs._signed;
+		_target = rhs._target;
+	}
 	return *this;
 }
 

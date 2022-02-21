@@ -26,7 +26,8 @@ AAnimal::~AAnimal()
 
 AAnimal	&AAnimal::operator=(AAnimal const &rhs)
 {
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return	*this;
 }
 

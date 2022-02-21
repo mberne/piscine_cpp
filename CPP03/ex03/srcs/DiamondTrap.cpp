@@ -41,10 +41,13 @@ DiamondTrap::~DiamondTrap()
 
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &rhs)
 {
-	this->_name = rhs._name;
-	this->_hit_points = rhs._hit_points;
-	this->_energy_points = rhs._energy_points;
-	this->_attack_damage = rhs._attack_damage;
+	if (this != &rhs)
+	{
+		this->_name = rhs._name;
+		this->_hit_points = rhs._hit_points;
+		this->_energy_points = rhs._energy_points;
+		this->_attack_damage = rhs._attack_damage;
+	}
 	return *this;
 }
 

@@ -25,9 +25,12 @@ Data::~Data()
 
 Data	&Data::operator=(Data const &rhs)
 {
-	_stringValue = rhs._stringValue;
-	_intValue = rhs._intValue;
-	_floatValue = rhs._floatValue;
+	if (this != &rhs)
+	{
+		_stringValue = rhs._stringValue;
+		_intValue = rhs._intValue;
+		_floatValue = rhs._floatValue;
+	}
 	return *this;
 }
 
