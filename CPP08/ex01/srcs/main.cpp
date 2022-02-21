@@ -63,7 +63,7 @@ int main()
 			std::cerr << e.what() << '\n';
 		}
 
-		std::cout << std::endl << "______Add a number but vector full._____" << std::endl;
+		std::cout << std::endl << "______Add a number but vector is full._____" << std::endl;
 
 		try
 		{
@@ -75,7 +75,7 @@ int main()
 		}
 	}
 
-	std::cout << std::endl << "Generate a full vector." << std::endl;
+	std::cout << std::endl << "_____Generate a full vector._____" << std::endl;
 
 	{
 		Span sp = Span(20);

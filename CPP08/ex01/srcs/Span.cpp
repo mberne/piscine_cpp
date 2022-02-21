@@ -87,20 +87,19 @@ unsigned int	Span::longestSpan()
 
 int	randomNumber()
 {
-	int	i = std::rand() % 100;
-	std::cout << i << std::endl;
-	return (i);
+	return (std::rand() % 100);
 }
 
 void	Span::fillVector()
 {
+	_span.assign(_span.capacity(), 0);
 	srand(time(NULL));
 	std::generate(_span.begin(), _span.end(), randomNumber);
-	size_t i = 0;
-	i = 0;
-	while (i < _span.capacity())
-	{
-		std::cout << _span[i] << std::endl;
-		i++;
-	}
+	// size_t	i = 0;
+	// while (i < _span.size())
+	// {
+	// 	std::cout << _span[i] << " ";
+	// 	i++;
+	// }
+	// std::cout << std::endl;
 }
