@@ -16,6 +16,7 @@ Span::Span(unsigned int N)
 
 Span::Span(const Span &src)
 {
+	_span.reserve(src._span.capacity());
 	*this = src;
 }
 

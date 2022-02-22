@@ -5,7 +5,7 @@
 #include <list>
 
 template <typename T>
-class MutantStack : public std::list<T>
+class MutantStack : public std::stack<T>
 {
 	public:
 		MutantStack() {}

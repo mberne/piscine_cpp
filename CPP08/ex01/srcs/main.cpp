@@ -73,6 +73,40 @@ int main()
 		{
 			std::cerr << e.what() << '\n';
 		}
+
+		std::cout << std::endl << "_____Copy constructor._____" << std::endl;
+
+		try
+		{
+			sp.addNumber(6);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		Span cp = Span(sp);
+
+		try
+		{
+			std::cout << cp.shortestSpan() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			std::cout << cp.longestSpan() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 
 	std::cout << std::endl << "_____Generate a full vector._____" << std::endl;
