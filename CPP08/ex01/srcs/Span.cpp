@@ -55,15 +55,15 @@ unsigned int	Span::shortestSpan()
 	
 	size_t	i = 0;
 	size_t	j;
-	int		value = INT_MAX;
-	int		tmp = 0;
+	long	value = __LONG_MAX__;
+	long	tmp = 0;
 	
 	while (i < _span.size())
 	{
 		j = i + 1;
 		while (j < _span.size())
 		{
-			tmp = _span[i] - _span[j];
+			tmp = (long)_span[i] - (long)_span[j];
 			if (tmp < 0)
 				tmp *= -1;
 			if (tmp < value)

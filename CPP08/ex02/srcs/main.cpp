@@ -7,7 +7,7 @@ int main()
 	{	
 		std::cout << std::endl << "_____Their main._____" << std::endl;
 
-		MutantStack<int> mstack;
+		MutantStack<int> mstack, mstack2;
 
 		mstack.push(5);
 		mstack.push(17);

@@ -117,5 +117,37 @@ int main()
 		sp.fillVector();
 	}
 
+	{
+		Span sp = Span(2);
+
+		std::cout << std::endl << "______Int min and int max._____" << std::endl;
+
+		try
+		{
+			sp.addNumber(-2147483648);
+			sp.addNumber(2147483647);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			std::cout << sp.shortestSpan() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+
 	return 0;
 }
